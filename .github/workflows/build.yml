@@ -13,13 +13,16 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: cv-martinfleis.tex
+          root_file: |
+            cv-martinfleis.tex
+            cv-martinfleis-single-a4.tex
 
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add cv-martinfleis.pdf
+          git add cv-martinfleis-single-a4.pdf
           git commit -m "Build PDF" -a --allow-empty
       - name: Push changes
         uses: ad-m/github-push-action@master
