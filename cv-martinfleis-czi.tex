@@ -1,0 +1,228 @@
+%!TeX program = pdflatex
+% Martin Fleischmann's Curriculum Vitae
+% Email: martin@martinfleischmann.net
+% Web: https://martinfleischmann.net/
+% Repo: https://github.com/martinfleis/cv
+
+\documentclass[11pt,a4paper]{report}
+
+\usepackage[T1]{fontenc} % output T1 font encoding (8-bit) for accented characters as single glyph
+\usepackage[strict,autostyle]{csquotes} % smart and nestable quote marks
+\usepackage[UKenglish]{babel} % regionalize hyphens, quote marks, etc automatically
+\usepackage{microtype}% improve text appearance with kerning, etc
+\usepackage{datetime} % enable formatting of date output
+\usepackage{tabto}    % make nice tabbing
+\usepackage{hyperref} % enable hyperlinks and pdf metadata
+\usepackage{geometry} % manually set page margins
+\usepackage{enumitem} % enumerate with [resume] option
+\usepackage{titlesec} % allow custom section fonts
+\usepackage{setspace} % custom line spacing
+
+% what is your name?
+\newcommand{\myname}{Martin Fleischmann}
+
+% select default typefaces
+\usepackage{ebgaramond} % document's serif typeface
+\usepackage{helvet}     % document's sans serif typeface
+
+% how far to tab for list items with left-aligned date: different fonts need different widths
+\newcommand{\listtabwidth}{1.7cm}
+
+% define font to use as document's title
+\newcommand{\namefont}[1]{{\normalfont\bfseries\Huge{#1}}}
+
+% set section heading fonts and before/after spacing
+\SetTracking{encoding=*, family=\sfdefault}{30} % increase sans serif headings tracking
+\titleformat{\section}{\lsstyle\sffamily\small\bfseries\uppercase}{}{}{}{}
+\titlespacing{\section}{0pt}{30pt plus 4pt minus 4pt}{8pt plus 2pt minus 2pt}
+
+% set subsection heading fonts and before/after spacing
+\titleformat{\subsection}{\lsstyle\sffamily\footnotesize\bfseries}{}{}{}{}
+\titlespacing{\subsection}{0pt}{16pt plus 4pt minus 4pt}{4pt plus 2pt minus 2pt}
+
+% set page margins (assumes letter paper)
+\geometry{body={6.5in, 9.0in},
+    left=1.0in,
+    top=1.0in}
+
+% prevent paragraph indentation
+\setlength\parindent{0em}
+
+% set line spacing
+\setstretch{0.9}
+
+% define space between list items
+\newcommand{\listitemspace}{0.25em}
+
+% make unordered lists without bullets and use compact spacing
+\renewenvironment{itemize}
+{\begin{list}{}{\setlength{\leftmargin}{0em}
+                \setlength{\parskip}{0em}
+                \setlength{\itemsep}{\listitemspace}
+                \setlength{\parsep}{\listitemspace}}}
+{\end{list}}
+
+% make tabbed lists so content is left-aligned next to years
+\TabPositions{\listtabwidth}
+\newlist{tablist}{description}{3}
+\setlist[tablist]{leftmargin=\listtabwidth,
+    labelindent=0em,
+    topsep=0em,
+    partopsep=0em,
+    itemsep=\listitemspace,
+    parsep=\listitemspace,
+    font=\normalfont}
+
+% print only the month and year when using \today
+\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
+
+% define hyperlink appearance and metadata for pdf properties
+\hypersetup{
+    colorlinks  = true,
+    urlcolor    = black,
+    pdfauthor   = {\myname},
+    pdfkeywords = {urban morphology, urban geography, software development, geographic data science},
+    pdftitle    = {\myname: Curriculum Vitae},
+    pdfsubject  = {Curriculum Vitae},
+    pdfpagemode = UseNone
+}
+
+\begin{document}
+    \raggedright{}
+
+    % display your name as the document title
+    \namefont{\myname}
+
+    % affiliation and contact info blocks
+    \vspace{1em}
+
+    \begin{minipage}[t]{0.6\textwidth}
+        \begin{flushleft}
+            \textsuperscript{1}Urban and Regional Laboratory, Charles University, CZ \\
+            \textsuperscript{2}Geographic Data Science Lab, University of Liverpool, UK \\
+            \textsuperscript{3}UrbanDataLab AG, Zürich, CH
+        \end{flushleft}
+    \end{minipage}%
+    %
+    \begin{minipage}[t]{0.4\textwidth}
+        \begin{flushright}
+            \href{mailto:martin@martinfleischmann.net}{martin@martinfleischmann.net} \\
+            +420 774 627 733 \\
+            \href{https://martinfleischmann.net}{martinfleischmann.net} \\
+            \href{https://twitter.com/martinfleis}{@martinfleis} \\
+            \href{https://orcid.org/0000-0003-3319-3366}{0000-0003-3319-3366}
+        \end{flushright}
+    \end{minipage}%
+
+
+    \section*{Education}
+
+    \begin{tablist}
+
+        \item[Ph.D.] \tab{}Urban Morphology, University of Strathclyde, Glasgow, 2021 \\
+        \item[MSc.]  \tab{}Urban Design, University of Strathclyde, Glasgow, 2017 \\
+
+    \end{tablist}
+
+
+    \section*{Academic Appointments}
+
+    \begin{tablist}
+
+         \item[2023--] \tab{}The Alan Turing Institute \\
+                            Postdoctoral Research Associate, Urban Analytics programme \\
+
+
+         \item[2022--] \tab{}Charles University in Prague \\
+                            Postdoctoral Researcher, Department of Social Geography and Regional Development \\
+
+        \item[2020--22] \tab{}University of Liverpool \\
+                            Research Associate, Department of Geography and Planning \\
+
+    \end{tablist}
+
+
+    \section*{Professional Appointments}
+
+    \begin{tablist}
+
+        \item[2022--] \tab{}UrbanDataLab AG, Head of Data and Analytics
+
+    \end{tablist}
+
+    \section*{Selected Publications}
+
+    \begin{tablist}
+
+        \item[2023] \tab{}Calafiore, A., Samardzhiev, K., Rowe, F., Fleischmann, M., and Arribas-Bel, D., \enquote{Inequalities in experiencing urban functions. An exploration of human digital (geo-)footprints} \textit{Environment and Planning B: Urban Analytics and City Science} 0 (0). \href{https://doi.org/10.1177/23998083231208507}{doi:10.1177/23998083231208507}
+
+        \item[2023] \tab{}Fleischmann, M. \enquote{Clustergram: Visualization and diagnostics for cluster analysis}. \textit{Journal of Open Source Software} 8 (89), 5240. \href{https://doi.org/10.21105/joss.05240}{doi:10.21105/joss.05240}
+
+        \item[2023] \tab{}Wang, J., Fleischmann, M., Venerandi, A., Romice, O., Kuffer, M., and Porta, S. \enquote{EO + Morphometrics: Understanding cities through urban morphology at large scale} \textit{Landscape and Urban Planning}, 233. \href{https://doi.org/10.1016/j.landurbplan.2023.104691}{doi:10.1016/j.landurbplan.2023.104691}
+
+        \item[2022] \tab{}Rowe, F., Calafiore, A., Arribas-Bel, D., Samardzhiev, K., and Fleischmann, M. \enquote{Urban exodus? Understanding human mobility in Britain during the COVID-19 pandemic using Meta-Facebook data} \textit{Population, Space and Place}, e2637. \href{https://doi.org/10.1002/psp.2637}{doi:10.1002/psp.2637}
+
+        \item[2022] \tab{}Arribas-Bel, D. and Fleischmann, M. \enquote{Spatial Signatures: Understanding (urban) spaces through form and function} \textit{Habitat International}, 128, (102641). \href{https://doi.org/10.1016/j.habitatint.2022.102641}{doi:10.1016/j.habitatint.2022.102641}
+
+        \item[2022] \tab{}Fleischmann, M. and Arribas-Bel, D. \enquote{Geographical characterisation of British urban form and function using the spatial signatures framework} \textit{Scientific Data}, 9, (546). \href{https://doi.org/10.1038/s41597-022-01640-8}{doi:10.1038/s41597-022-01640-8}
+
+        \item[2022] \tab{}Samardzhiev, K., Fleischmann, M., Arribas-Bel, D., Calafiore, A., Rowe, F. \enquote{Functional Signatures in Great Britain: A dataset.} \textit{Data in Brief}, 108335, \href{https://doi.org/10.1016/j.dib.2022.108335}{doi:10.1016/j.dib.2022.108335}
+
+        \item[2022] \tab{}Singleton, A., Arribas-Bel, D., Murray, J., and Fleischmann, M. \enquote{Estimating generalized measures of local neighbourhood context from multispectral satellite images using a convolutional neural network.} \textit{Computers, Environment and Urban Systems}, 95, 101802. \href{https://doi.org/10.1016/j.compenvurbsys.2022.101802}{doi:10.1016/j.compenvurbsys.2022.101802}
+
+        \item[2021] \tab{}Fleischmann, M., Feliciotti, A., Romice, O. and Porta, S. \enquote{Methodological Foundation of a Numerical Taxonomy of Urban Form.} \textit{Environment and Planning B: Urban Analytics and City Science} 49 (4), 1283-1299. \href{https://doi.org/10.1177/23998083211059835}{doi:10.1177/23998083211059835}
+
+        \item[2021] \tab{}Fleischmann, M., Feliciotti, A. and Kerr, W. \enquote{Evolution of urban patterns: urban morphology as an open reproducible data science.} \textit{Geographical Analysis} 54 (3). \href{https://doi.org/10.1111/gean.12302}{doi:10.1111/gean.12302}
+
+        \item[2020] \tab{}Fleischmann, M., Romice, O. and Porta, S. \enquote{Measuring urban form: overcoming terminological inconsistencies for a quantitative and comprehensive morphologic analysis of cities.} \textit{Environment and Planning B: Urban Analytics and City Science} 48 (8), 2133-2150. \href{https://doi.org/10.1177/2399808320910444}{doi:10.1177/2399808320910444}
+
+        \item[2020] \tab{}Fleischmann, M., Feliciotti, A., Romice, O. and Porta, S. \enquote{Morphological tessellation as a way of partitioning space: Improving consistency in urban morphology at the plot scale} \textit{Computers, Environment and Urban Systems} 80, 101441. \href{https://doi.org/10.1016/j.compenvurbsys.2019.101441}{doi:10.1016/j.compenvurbsys.2019.101441}
+
+        \item[2019] \tab{}Fleischmann, M. \enquote{momepy: Urban Morphology Measuring Toolkit} \textit{Journal of Open Source Software} 4 (43), 1807. \href{https://doi.org/10.21105/joss.01807}{doi:10.21105/joss.01807}
+
+
+    \end{tablist}
+
+    \section*{Research software development}
+
+    \begin{tablist}
+
+        \item[2023--] \tab{}geodatasets: spatial data examples. (author and maintainer)
+        \item[2022--] \tab{}Xvec: vector data cubes for Xarray. (author and maintainer)
+        \item[2021--] \tab{}xyzservices: source of XYZ tiles providers. (author and maintainer)
+        \item[2020--] \tab{}clustergram: visualization and diagnostics for cluster analysis (author and maintainer)
+        \item[2020--] \tab{}PySAL: Python Spatial Analysis Library (core developer)
+        \item[2019--] \tab{}GeoPandas: an open source project to make working with geospatial data in python easier (core developer)
+        \item[2018--] \tab{}momepy: Urban Morphology Measuring Toolkit (author and maintainer)
+
+    \end{tablist}
+
+    \section*{Editorial Appointments}
+
+    \begin{tablist}
+
+        \item[2021--] \tab{}Journal of Open Source Software \\
+                            Editor
+
+    \end{tablist}
+
+    \section*{Research income}
+
+    \subsection*{Awards}
+
+    \begin{tablist}
+
+        \item[2023] \tab{}\textit{Primus Research Programme, Charles University} \enquote{Influence of Socioeconomic and Cultural Factors on Urban Structure in Central Europe}, €325,000
+        \item[2023] \tab{}\textit{NumFOCUS} \enquote{Create a more consistent geometry API through the feature parity between low-level (Shapely) and high-level (GeoPandas) packages}, \$8,000
+        \item[2020] \tab{}\textit{NumFOCUS} \enquote{Improvement and modernization of GeoPandas documentation}, \$5,000
+        \item[2018] \tab{}\textit{University of Strathclyde} \enquote{John Anderson Research Award}, £60,000
+
+    \end{tablist}
+
+    % display today's date as Month Year after a vertical space below the end of the text
+    \begin{center}
+        \vfill
+        Updated \monthyeardate\today
+    \end{center}
+
+\end{document}
