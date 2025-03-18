@@ -1,0 +1,476 @@
+%!TeX program = pdflatex
+% Martin Fleischmann's Curriculum Vitae
+% Email: martin@martinfleischmann.net
+% Web: https://martinfleischmann.net/
+% Repo: https://github.com/martinfleis/cv
+
+\documentclass[11pt,a4paper]{report}
+
+\usepackage[T1]{fontenc} % output T1 font encoding (8-bit) for accented characters as single glyph
+\usepackage[strict,autostyle]{csquotes} % smart and nestable quote marks
+\usepackage[UKenglish]{babel} % regionalize hyphens, quote marks, etc automatically
+\usepackage{microtype}% improve text appearance with kerning, etc
+\usepackage{datetime} % enable formatting of date output
+\usepackage{tabto}    % make nice tabbing
+\usepackage{hyperref} % enable hyperlinks and pdf metadata
+\usepackage{geometry} % manually set page margins
+\usepackage{enumitem} % enumerate with [resume] option
+\usepackage{titlesec} % allow custom section fonts
+\usepackage{setspace} % custom line spacing
+
+% what is your name?
+\newcommand{\myname}{Martin Fleischmann}
+
+% select default typefaces
+\usepackage{ebgaramond} % document's serif typeface
+\usepackage{helvet}     % document's sans serif typeface
+
+% how far to tab for list items with left-aligned date: different fonts need different widths
+\newcommand{\listtabwidth}{1.7cm}
+
+% define font to use as document's title
+\newcommand{\namefont}[1]{{\normalfont\bfseries\Huge{#1}}}
+
+% set section heading fonts and before/after spacing
+\SetTracking{encoding=*, family=\sfdefault}{30} % increase sans serif headings tracking
+\titleformat{\section}{\lsstyle\sffamily\small\bfseries\uppercase}{}{}{}{}
+\titlespacing{\section}{0pt}{20pt plus 4pt minus 4pt}{6pt plus 2pt minus 2pt}
+
+% set subsection heading fonts and before/after spacing
+\titleformat{\subsection}{\lsstyle\sffamily\footnotesize\bfseries}{}{}{}{}
+\titlespacing{\subsection}{0pt}{12pt plus 4pt minus 4pt}{4pt plus 2pt minus 2pt}
+
+% set page margins (assumes letter paper)
+\geometry{body={6.5in, 9.0in},
+    left=1.0in,
+    top=1.0in}
+
+% prevent paragraph indentation
+\setlength\parindent{0em}
+
+% set line spacing
+\setstretch{0.8}
+
+% define space between list items
+\newcommand{\listitemspace}{0.25em}
+
+% make unordered lists without bullets and use compact spacing
+\renewenvironment{itemize}
+{\begin{list}{}{\setlength{\leftmargin}{0em}
+                \setlength{\parskip}{0em}
+                \setlength{\itemsep}{\listitemspace}
+                \setlength{\parsep}{\listitemspace}}}
+{\end{list}}
+
+% make tabbed lists so content is left-aligned next to years
+\TabPositions{\listtabwidth}
+\newlist{tablist}{description}{3}
+\setlist[tablist]{leftmargin=\listtabwidth,
+    labelindent=0em,
+    topsep=0em,
+    partopsep=0em,
+    itemsep=\listitemspace,
+    parsep=\listitemspace,
+    font=\normalfont}
+
+% print only the month and year when using \today
+\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
+
+% define hyperlink appearance and metadata for pdf properties
+\hypersetup{
+    colorlinks  = true,
+    urlcolor    = black,
+    pdfauthor   = {\myname},
+    pdfkeywords = {urban morphology, urban geography, software development, geographic data science},
+    pdftitle    = {\myname: Curriculum Vitae},
+    pdfsubject  = {Curriculum Vitae},
+    pdfpagemode = UseNone
+}
+
+\begin{document}
+    \raggedright{}
+
+    % display your name as the document title
+    \namefont{\myname}
+
+    % affiliation and contact info blocks
+    \vspace{1em}
+
+    \begin{minipage}[t]{0.6\textwidth}
+        \begin{flushleft}
+            \textsuperscript{1}Urban and Regional Laboratory, Charles University, CZ \\
+            \textsuperscript{2}Geographic Data Science Lab, University of Liverpool, UK \\
+        \end{flushleft}
+    \end{minipage}%
+    %
+    \begin{minipage}[t]{0.4\textwidth}
+        \begin{flushright}
+            \href{https://orcid.org/0000-0003-3319-3366}{ORCID: 0000-0003-3319-3366} \\
+            \href{https://www.webofscience.com/wos/author/record/HKN-7973-2023}{Researcher ID: HKN-7973-2023}
+        \end{flushright}
+    \end{minipage}%
+
+
+    \section*{Education}
+
+    \begin{tablist}
+
+        \item[Ph.D.] \tab{}Architecture, University of Strathclyde, Glasgow, 2021 \\
+                        %    \textit{The Urban Atlas: Methodological Foundation of a Morphometric Taxonomy of Urban Form}
+        \item[MSc.]  \tab{}Urban Design, University of Strathclyde, Glasgow, 2017 \\
+                        %    \textit{Measuring Urban Form: A Systematisation of Attributes for Quantitative Urban Morphology}
+        % \item[BSc.]  \tab{}Architecture and Urbanism, Czech Technical University, Prague, 2015
+
+    \end{tablist}
+
+
+    \section*{Academic Appointments}
+
+    \begin{tablist}
+
+        \item[2024--] \tab{}Research Associate, Dept. of Social Geography and Regional Development, Charles University
+
+        \item[2023-24] \tab{}Postdoctoral Research Associate, The Alan Turing Institute, UK
+
+        \item[2022-23] \tab{}Researcher, Dept. of Social Geography and Regional Development, Charles University
+
+        \item[2020--22] \tab{}Research Associate, Dept. of Geography and Planning, University of Liverpool
+
+    \end{tablist}
+
+
+    \section*{Honorary Appointments}
+
+    \begin{tablist}
+
+        \item[2022--] \tab{}Fellow, Dept. of Geography and Planning, University of Liverpool
+    \end{tablist}
+
+    \section*{Research income}
+
+    \subsection*{Awards}
+
+    \begin{tablist}
+
+        \item[2024] \tab{}\textit{European Space Agency} \enquote{EuroFab: European Urban Fabric Classification Using Artificial Intelligence}, €250,000
+        \item[2023] \tab{}\textit{Primus Research Programme, Charles University} \enquote{Influence of Socioeconomic and Cultural Factors on Urban Structure in Central Europe}, €325,000
+        \item[2023] \tab{}\textit{NumFOCUS} \enquote{Create a more consistent geometry API through the feature parity between low-level (Shapely) and high-level (GeoPandas) packages}, \$8,000
+        \item[2020] \tab{}\textit{NumFOCUS} \enquote{Improvement and modernization of GeoPandas documentation}, \$5,000
+        \item[2018] \tab{}\textit{University of Strathclyde} \enquote{John Anderson Research Award}, £60,000
+
+    \end{tablist}
+
+
+    \section*{Publication activity}
+
+    18 papers indexed in Web of Science, 2 papers in other peer-reviewed journals, 5 policy reports \\
+    Web of Science: 354 citations, H-index: 9, Google Scholar: 760 citations, H-index: 11
+
+    \subsection*{Selected publications not included in Part D2}
+
+    \begin{tablist}
+
+        \item[2024] \tab{}Fleischmann, M. and Arribas-Bel, D., \enquote{Decoding (urban) form and function using spatially explicit deep learning} \textit{Computers, Environment and Urban Systems} 112, 102147 \href{https://doi.org/10.1016/j.compenvurbsys.2024.102147}{doi:10.1016/j.compenvurbsys.2024.102147}
+
+        \item[2024] \tab{}Fleischmann, M., and Vybornova, A., \enquote{A shape-based heuristic for the detection of urban block artifacts in street networks} \textit{Journal of Spatial Information Science} 28. \href{https://doi.org/10.5311/JOSIS.2024.28.319}{doi:10.5311/JOSIS.2024.28.319}
+
+        \item[2023] \tab{}Calafiore, A., Samardzhiev, K., Rowe, F., Fleischmann, M., and Arribas-Bel, D., \enquote{Inequalities in experiencing urban functions. An exploration of human digital (geo-)footprints} \textit{Environment and Planning B: Urban Analytics and City Science} 0 (0). \href{https://doi.org/10.1177/23998083231208507}{doi:10.1177/23998083231208507}
+
+        \item[2023] \tab{}Fleischmann, M. \enquote{Clustergram: Visualization and diagnostics for cluster analysis}. \textit{Journal of Open Source Software} 8 (89), 5240. \href{https://doi.org/10.21105/joss.05240}{doi:10.21105/joss.05240}
+
+        % \item[2023] \tab{}Wang, J., Fleischmann, M., Venerandi, A., Romice, O., Kuffer, M., and Porta, S. \enquote{EO + Morphometrics: Understanding cities through urban morphology at large scale} \textit{Landscape and Urban Planning}, 233. \href{https://doi.org/10.1016/j.landurbplan.2023.104691}{doi:10.1016/j.landurbplan.2023.104691}
+
+        \item[2022] \tab{}Rowe, F., Calafiore, A., Arribas-Bel, D., Samardzhiev, K., and Fleischmann, M. \enquote{Urban exodus? Understanding human mobility in Britain during the COVID-19 pandemic using Meta-Facebook data} \textit{Population, Space and Place}, e2637. \href{https://doi.org/10.1002/psp.2637}{doi:10.1002/psp.2637}
+
+        % \item[2022] \tab{}Arribas-Bel, D. and Fleischmann, M. \enquote{Spatial Signatures: Understanding (urban) spaces through form and function} \textit{Habitat International}, 128, (102641). \href{https://doi.org/10.1016/j.habitatint.2022.102641}{doi:10.1016/j.habitatint.2022.102641}
+
+        \item[2022] \tab{}Fleischmann, M. and Arribas-Bel, D. \enquote{Geographical characterisation of British urban form and function using the spatial signatures framework} \textit{Scientific Data}, 9, (546). \href{https://doi.org/10.1038/s41597-022-01640-8}{doi:10.1038/s41597-022-01640-8}
+
+        \item[2022] \tab{}Venerandi, A., Feliciotti, A., Fleischmann, M., Kourtit, K., Porta, S.\enquote{Urban form character and Airbnb in Amsterdam \(NL\): A morphometric approach} \textit{Environment and Planning B: Urban Analytics and City Science} 50 (2), 386-400. \href{https://doi.org/10.1177/23998083221115196}{doi:10.1177/23998083221115196}
+
+        \item[2022] \tab{}Samardzhiev, K., Fleischmann, M., Arribas-Bel, D., Calafiore, A., Rowe, F. \enquote{Functional Signatures in Great Britain: A dataset.} \textit{Data in Brief}, 108335, \href{https://doi.org/10.1016/j.dib.2022.108335}{doi:10.1016/j.dib.2022.108335}
+
+        \item[2022] \tab{}Singleton, A., Arribas-Bel, D., Murray, J., and Fleischmann, M. \enquote{Estimating generalized measures of local neighbourhood context from multispectral satellite images using a convolutional neural network.} \textit{Computers, Environment and Urban Systems}, 95, 101802. \href{https://doi.org/10.1016/j.compenvurbsys.2022.101802}{doi:10.1016/j.compenvurbsys.2022.101802}
+
+        % \item[2021] \tab{}Fleischmann, M., Feliciotti, A., Romice, O. and Porta, S. \enquote{Methodological Foundation of a Numerical Taxonomy of Urban Form.} \textit{Environment and Planning B: Urban Analytics and City Science} 49 (4), 1283-1299. \href{https://doi.org/10.1177/23998083211059835}{doi:10.1177/23998083211059835}
+
+        \item[2021] \tab{}Fleischmann, M., Feliciotti, A. and Kerr, W. \enquote{Evolution of urban patterns: urban morphology as an open reproducible data science.} \textit{Geographical Analysis} 54 (3). \href{https://doi.org/10.1111/gean.12302}{doi:10.1111/gean.12302}
+
+        \item[2020] \tab{}Dal Cin, F., Fleischmann, M., Romice, O. and Costa, J.P. \enquote{Climate Adaptation Plans in the Context of Coastal Settlements: The Case of Portugal.} \textit{Sustainability} 12 (20). \href{https://doi.org/10.3390/su12208559}{doi:10.3390/su12208559}
+
+        % \item[2020] \tab{}Fleischmann, M., Romice, O. and Porta, S. \enquote{Measuring urban form: overcoming terminological inconsistencies for a quantitative and comprehensive morphologic analysis of cities.} \textit{Environment and Planning B: Urban Analytics and City Science} 48 (8), 2133-2150. \href{https://doi.org/10.1177/2399808320910444}{doi:10.1177/2399808320910444}
+
+        % \item[2020] \tab{}Fleischmann, M., Feliciotti, A., Romice, O. and Porta, S. \enquote{Morphological tessellation as a way of partitioning space: Improving consistency in urban morphology at the plot scale} \textit{Computers, Environment and Urban Systems} 80, 101441. \href{https://doi.org/10.1016/j.compenvurbsys.2019.101441}{doi:10.1016/j.compenvurbsys.2019.101441}
+
+        \item[2019] \tab{}Fleischmann, M. \enquote{momepy: Urban Morphology Measuring Toolkit} \textit{Journal of Open Source Software} 4 (43), 1807. \href{https://doi.org/10.21105/joss.01807}{doi:10.21105/joss.01807}
+
+
+    \end{tablist}
+
+    % \subsection*{Conference Papers}
+
+    % \begin{tablist}
+
+    %     \item[2022] \tab{}Fleischmann, M. and Arribas-Bel, D. \enquote{Classifying urban form at national scale : the British morphosignatures}, \textit{Annual Conference Proceedings of the XXVIII International Seminar on Urban Form}. University of Strathclyde Publishing, Glasgow, pp. 895-905. ISBN 9781914241161. \href{https://doi.org/10.17868/strath.00080527}{doi:10.17868/strath.00080527}
+
+    %     \item[2022] \tab{}Wang, J., Fleischmann, M., Venerandi, A., Kuffer, M., Porta, S. \enquote{Earth observation+ morphometrics: towards a systematic understanding of cities in challenging contexts}, \textit{Annual Conference Proceedings of the XXVIII International Seminar on Urban Form}. University of Strathclyde Publishing, Glasgow, pp. 363-370. ISBN 9781914241161. \href{https://doi.org/10.17868/strath.00080476}{doi:10.17868/strath.00080467}
+
+    %     \item[2022] \tab{}Fleischmann, M., Romice, O. and Porta, S. \enquote{Applicability of morphological tessellation and its topological derivatives in the quantitative analysis of urban form} \textit{Cities as Assemblages, Proceedings of XXVI International Seminar on Urban Form, volume 3}. Nicosia. \href{https://doi.org/10.36158/978889295357413}{doi:10.36158/978889295357413}
+
+    % \end{tablist}
+
+    % \subsection*{Commentaries}
+
+    % \begin{tablist}
+
+    %     \item[2024] \tab{}Fleischmann, M. and Arribas-Bel, D. \enquote{In praise of (spatial) bundles}, \textit{Environment and Planning B: Urban Analytics and City Science} 51 (1), 3-6 \href{https://doi.org/10.1177/23998083231224151}{doi:10.1177/23998083231224151}
+
+    % \end{tablist}
+
+    % \subsection*{Reports and Other publications}
+
+    % \begin{tablist}
+
+    %     \item[2022] \tab{}Feliciotti, A., Fleischmann, M., eds. \enquote{ISUF Annual Conference Proceedings of the XXVII International Seminar on Urban Form:" Urban Form and the Sustainable and Prosperous City"}. University of Strathclyde Publishing, Glasgow, ISBN 9781914241161. \href{https://doi.org/10.17868/80146}{doi:10.17868/80146}
+    %     \item[2022] \tab{}Rowe, F., Arribas-Bel, D., Calafiore, A., MacDonald, J., Samardzhiev, K., Fleischmann, M., \enquote{Mobility data in urban science. Workshop report}. The Alan Turing Institute. London, United Kingdom.
+    %     \item[2021] \tab{}Fleischmann, M. \enquote{Policy Brief: Flexibilita prostorového uspořádání města} (Flexibility of the spatial configuration of the city) \textit{Územně analytické podklady hl. m. Prahy}. Institute for Planning and Development, Prague, Czechia
+    %     \item[2021] \tab{}Darlington-Pollock, F., Arribas-Bel, D., Fleischman, M., Newsham, N., Rowe, F. \enquote{Policy Brief: What do ‘left behind’ areas look like over time? Developing place-based typologies of left behind areas}. Local Trust, UK
+    %     \item[2020] \tab{}Places Platform, Smart Growth America, UDSU. \enquote{Welcome to the Future of Grand Rapids: Assessing Place-Based Economic, Social Equity, and Public Health Performance}. Downtown Grand Rapids Inc., US
+    %     \item[2018] \tab{}Fleischmann, M. \enquote{Measuring Urban Form} \textit{URBAN DESIGN} 146 (Spring 2018), 6-7.
+
+    % \end{tablist}
+
+    \section*{Research software development}
+
+    \begin{tablist}
+
+        \item[2023--] \tab{}geodatasets: spatial data examples. (author and maintainer)
+        \item[2022--] \tab{}Xvec: vector data cubes for Xarray. (author and maintainer)
+        \item[2021--] \tab{}xyzservices: source of XYZ tiles providers. (author and maintainer)
+        \item[2020--] \tab{}clustergram: visualization and diagnostics for cluster analysis (author and maintainer)
+        \item[2020--] \tab{}PySAL: Python Spatial Analysis Library (core developer)
+        \item[2019--] \tab{}GeoPandas: an open source project to make working with geospatial data in python easier (core developer)
+        \item[2018--] \tab{}momepy: Urban Morphology Measuring Toolkit (author and maintainer)
+
+    \end{tablist}
+
+    \section*{Editorial Appointments}
+
+    \begin{tablist}
+
+        \item[2021--] \tab{}Journal of Open Source Software
+
+    \end{tablist}
+
+    \section*{Honors and Awards}
+
+    \begin{tablist}
+
+        \item[2024] \tab{}Dean's Award for Early Career Researcher, Faculty of Science, Charles University
+        \item[2023] \tab{}Michael Breheny Prize, Environment and Planning B: Urban Analytics and City Science
+
+    \end{tablist}
+
+    % \section*{Invited Talks and Keynotes}
+
+    % \subsection*{Keynote speeches}
+
+    % \begin{tablist}
+
+    %     \item[2024] \tab{}\enquote{From a building to a region: Scalable morphology with urban morphometrics} International Seminar on Urban Morpho-Science. Nanjing, China. Oct 26
+    %     \item[2024] \tab{}\enquote{The emergent structure of cities} 4th UrbanMetaMapping conference 'City Transition'. Saarbrücken, Germany. Sep 12.
+
+    % \end{tablist}
+
+    % \subsection*{Seminars}
+
+    % \begin{tablist}
+
+    %     \item[2023] \tab{}\enquote{Open by Default} Oak Ridge National Laboratory, Oak Ridge. USA. Online. June 7.
+    %     \item[2023] \tab{}\enquote{Open by Default} University of California, Santa Barbara. USA. Online. June 2.
+    %     \item[2023] \tab{}\enquote{The emergent structure of urban form and function} Space Syntax Lab Seminars, UCL, London. Online. May 18.
+    %     \item[2023] \tab{}\enquote{Urban morphology drawn and seen} NEtwoRks, Data, and Society. IT University of Copenhagen. Denmark. Online. Apr 26.
+    %     \item[2021] \tab{}\enquote{Capturing the structure of cities with data science.} Spatial Data Science Conference 2021. Online. Oct 26.
+    %     \item[2021] \tab{}\enquote{Spatial Signatures: Dynamic classification of the built environment.} Spatial Analytics and Data seminar series by University of Newcastle and University of Bristol. Online. Mar 30.
+    %     \item[2020] \tab{}\enquote{Reading cities as numbers. Where data science meets urbanism.} Academy of Urbanism (Scotland). Online. Dec 3.
+
+    % \end{tablist}
+
+    \section*{Teaching}
+
+    \begin{tablist}
+
+        \item[2024--] \tab{}Spatial Data Science in Python (micro-credentials), Charles University
+        \item[2023--] \tab{}Spatial Data Science for Social Geography, Charles University
+    \end{tablist}
+
+
+    % \section*{Conference Activity}
+
+
+    % \subsection*{Conferences Organized}
+
+    % \begin{tablist}
+
+    %     \item[2024] \tab{}\enquote{Spatial Data Science across Languages} Prague, CZ. Sep 18 -- Sep 19.
+    %     \item[2021] \tab{}\enquote{XXVIII International Seminar on Urban Form} Urban Form and the Sustainable Prosperous City. Glasgow (virtually), UK. Jun 29 -- Jul 3.
+
+    % \end{tablist}
+
+    % \subsection*{Conference Papers Presented}
+
+    % Presenting author \textit{italicized} if other than first author.\bigskip
+
+    % \begin{tablist}
+
+    %     \item[2024] \tab{}Araldi, A., Fleischmann, M. and Fusco, G. \enquote{Urban Visibility Analysis: Integrating Street-level Protocols into the momepy Python Library} XXXI International Seminar on Urban Form: Future horizons for urban form. Sao Paulo. \@ Sep 16--20.
+
+    %     \item[2024] \tab{}Fleischmann, M. \enquote{GeoPandas 1.0 and beyond} EuroPython 2024, Prague, CZ,  \@ Jul 8--14.
+
+    %     \item[2024] \tab{}Fleischmann, M. and Van den Bossche, J. \enquote{GeoPandas 1.0 and beyond} GeoPython 2024, Basel, CH,  \@ May 27--29.
+
+    %     \item[2023] \tab{}Arribas-Bel, D. and Fleischmann, M. \enquote{Learning from Deep Learning: Lessons from using computer vision to identify (urban) form and function in open data satellite imagery.} AAG Annual Meeting. Denver, US \@ Mar 23 -- 26.
+
+    %     \item[2023] \tab{}Fleischmann, M. \enquote{Vector data cubes as a bridge between raster and vector worlds.} GeoPython. Basel. \@ Mar 6--8.
+
+    %     \item[2022] \tab{}Fleischmann, M. \enquote{Learning from the “cool kids”: how academic research can benefit from becoming more like open-source.} GeoPython. Basel. \@ Jun 20--22.
+
+    %     \item[2022] \tab{}Fleischmann, M. and Arribas-Bel, D. \enquote{Detecting urban typology from multispectral satellite imagery using neural networks.} ISUF Italy 2022, Bolgona/Virtual, IT. Jun 8 -- 10.
+
+    %     \item[2022] \tab{}Fleischmann, M. and Arribas-Bel, D. \enquote{Using deep learning to identify (urban) form and function in satellite imagery - the case of Great Britain.} GISRUK 2022, Liverpool UK. Apr 6 -- 8.
+
+    %     \item[2021] \tab{}Fleischmann, M. and Arribas-Bel, D. \enquote{Classifying urban form at a national scale: The case of Great Britain} XXVIII International Seminar on Urban Form: Urban Form and the Sustainable Prosperous City. Glasgow/Virtual. \@ Jun 29 -- Jul 3.
+
+    %     \item[2021] \tab{}Venerandi, A., \textit{Feliciotti, A.}, Fleischmann, M., Kourtit, K., Romice, O., Nijkamp, P., Porta, S. and Fusco, G. \enquote{Urban form and Airbnb: a study of their spatial relation in Amsterdam (NL)} XXVIII International Seminar on Urban Form: Urban Form and the Sustainable Prosperous City. Glasgow/Virtual. \@ Jun 29 -- Jul 3.
+
+    %     \item[2021] \tab{}Porta, S., \textit{Venerandi, A.}, Feliciotti, A., Fleischmann, M. and Romice, O. \enquote{A Numerical Taxonomy of Urban Form in London: an Urban Morphometric Approach} XXVIII International Seminar on Urban Form: Urban Form and the Sustainable Prosperous City. Glasgow/Virtual. \@ Jun 29 -- Jul 3.
+
+    %     \item[2021] \tab{}Wang, J., Fleischmann, M., Venerandi, A., Kuffer, M. and Porta, S. \enquote{Earth Observation + Morphometrics: towards a systematic understanding of cities in challenging contexts} XXVIII International Seminar on Urban Form: Urban Form and the Sustainable Prosperous City. Glasgow/Virtual. \@ Jun 29 -- Jul 3.
+
+    %     \item[2020] \tab{}Fleischmann, M. \enquote{On the morphological composition of cities and how to measure it.} GeoPython. Virtual. \@ Sep 21--22.
+
+    %     \item[2020] \tab{}Fleischmann, M., Romice, O. and Porta, S. \enquote{The Urban Atlas: Towards a Morphometric Taxonomy of Urban Form} XXVII International Seminar on Urban Form: Cities in the 21st Century. Salt Lake City/Virtual. \@ Sep 1--4.
+
+    %     \item[2020] \tab{}Hořák, D., Fleischmann, M., Romice, O. and Porta, S. \enquote{Just like a bird. A community ecology perspective on urban form evolution} XXVII International Seminar on Urban Form: Cities in the 21st Century. Salt Lake City/Virtual. \@ Sep 1--4.
+
+    %     \item[2020] \tab{}Feliciotti, A., Fleischmann, M., Romice, O., Kerr, W. and Porta, S. \enquote{Morphological Resilience Evaluation (MoRE): a new assessment framework for multi-level assessment of urban form resilience} XXVII International Seminar on Urban Form: Cities in the 21st Century. Salt Lake City/Virtual. \@ Sep 1--4.
+
+    %     \item[2020] \tab{}Dal Cin, F., Fleischmann, M., Romice, O. and Costa, J.P. \enquote{DECODING SEASHORE STREETS: urban morphometrics as a tool for adaptation measures} XXVII International Seminar on Urban Form: Cities in the 21st Century. Salt Lake City/Virtual. \@ Sep 1--4.
+
+    %     \item[2020] \tab{}Fleischmann, M., Dal Cin, F., Romice, O. and Barreiros Proença, S. \enquote{Understanding seashore streets: urban morphometrics as a tool for climate-induced risk assessment} ISUF Italy International Conference: Urban Substrata and City Regeneration. Rome \@ Feb 19--22.
+
+    %     \item[2019] \tab{}Feliciotti, A., Fleischmann, M., Romice, O., and Porta, S.  \enquote{Morphological Resilience: from a theory of resilient urban forms to the tools for its implementation} 12th CITTA International Conference on Planning Research: Spatial Planning for Change. Porto. \@ Sep 19--20.
+
+    %     \item[2019] \tab{}Fleischmann, M., Romice, O. and Porta, S. \enquote{Applicability of morphological tessellation and its topological derivatives in the quantitative analysis of urban form} XXVI International Seminar on Urban Form: Cities as Assemblages. Nicosia. \@ Jul 2--6.
+
+    %     \item[2019] \tab{}Fleischmann, M., Hořák, D., Porta, S. et al. \enquote{Ecological and evolutionary perspectives in urban morphology} Ecology and Evolution of Urban Areas, CEE Symposium. London. \@ Jun 13.
+
+
+    % \end{tablist}
+
+    % \subsection*{Other conference activities}
+
+    % \begin{tablist}
+
+    %     \item[2024] \tab{}Fleischmann, M. \enquote{A brief introduction to Spatial Data Science} 4th UrbanMetaMapping conference 'City Transition'. Saarbrücken. Sep 12.
+    %     \item[2023] \tab{}Fleischmann, M. and Van den Bossche, J. \enquote{Getting the most out of GeoPandas 1.0} GeoPython 2024, Basel, CH, May 27 -- 29.
+    %     \item[2023] \tab{}Fleischmann, M. and Van den Bossche, J. \enquote{Writing efficient code for GeoPandas and Shapely in 2023} GeoPython 2023, Basel, CH, Mar 6 -- 8.
+    %     \item[2022] \tab{}Fleischmann, M. and Gaboardi, J. \enquote{Understanding the structure of cities through the lens of data} Spatial Data Science Symposium 2022, Virtual, Sep 22 -- 23.
+    %     \item[2022] \tab{}Fleischmann, M. and Van den Bossche, J. \enquote{Scaling up vector analysis with Dask-GeoPandas} GeoPython 2022, Basel, CH, Jun 20 -- 22.
+    %     \item[2022] \tab{}Nieves, J., Fleischmann, M. and Calafiore, A. \enquote{Dasymetric population modelling in R and Python workshop} GISRUK 2022, Liverpool UK. Apr 6 -- 8.
+    %     \item[2021] \tab{}Fleischmann, M. and Arribas-Bel, D. \enquote{Spatial Signatures in Great Britain - lightning talk} Towards urban analytics 2.0, Alan Turing Institute (Urban Analytics) event, Leeds UK. Nov 30 -- Dec 1.
+
+    % \end{tablist}
+
+
+    % \section*{Service}
+
+    % \subsection*{Academic Journal Peer Review}
+
+    % \begin{itemize}
+
+    %     \item \textit{Cartography and Geographic Information Science}
+    %     \item \textit{Environment and Planning B:\ Urban Analytics and City Science}
+    %     \item \textit{Geographical Analysis}
+    %     \item \textit{Habitat International}
+    %     \item \textit{Journal of Geographical Systems}
+    %     \item \textit{Journal of Open Research Software}
+    %     \item \textit{Journal of Open Source Software}
+    %     \item \textit{Journal of Statistical Software}
+    %     \item \textit{Moravian Geographical Reports}
+    %     \item \textit{Nature Communications}
+    %     \item \textit{Nature Machine Intelligence}
+    %     \item \textit{Plos ONE}
+    %     \item \textit{Scientific Reports}
+    %     \item \textit{Transactions in GIS}
+    %     \item \textit{Urban Morphology}
+
+    % \end{itemize}
+
+    % \subsection*{Academic Press Peer Review}
+
+    % \begin{itemize}
+
+    %     \item \textit{CRC Press}
+
+    % \end{itemize}
+
+    % \subsection*{Other Peer Review}
+
+    % \begin{itemize}
+
+    %     \item \textit{Austrian Academy of Sciences}
+    %     \item \textit{Czech Technical University}
+    %     \item \textit{pyOpenSci}
+    %     \item \textit{ZHAW Zurich University of Applied Sciences}
+
+    % \end{itemize}
+
+    % \subsection*{Other}
+
+    % \begin{tablist}
+
+    %     \item[2022] \tab{}Lecturer, OpenGeoHub Summer School Siegburg \\
+    %                       \textit{Introduction to GeoPandas and its Python ecosystem}
+
+    %     \item[2022] \tab{}Mentor, Google Summer of Code. \\
+    %                       \textit{PySAL - Street network simplification projects} \\
+    %                       Greg Maya, Gabriel Agostini
+
+    %     \item[2021] \tab{}Mentor, Google Summer of Code. \\
+    %                       \textit{Geopandas - Dask bridge to scale geospatial analysis} \\
+    %                       Thomas Statham (University of Bristol)
+
+    %     \item[2019, 2022] \tab{}External reviewer, FA CTU Doctoral workshop
+
+    % \end{tablist}
+
+    % \section*{Consulting}
+
+    % \begin{tablist}
+
+    %     \item[2024] \tab{}4ct platform, Czechia
+    %     \item[2022] \tab{}UrbanDataLab AG, Switzerland
+    %     \item[2021] \tab{}All-Party Parliamentary Group for 'left behind' neighbourhoods, UK
+    %     \item[2019--20] \tab{}Institute for Planning and Development, Prague, Czechia
+    %     \item[2020] \tab{}Places Platform, US
+
+    % \end{tablist}
+
+
+    \section*{Memberships}
+
+    \begin{tablist}
+
+        \item[2021--] \tab{}Royal Geographical Society (Fellow)
+        \item[2019--] \tab{}International Seminar on Urban Form (Member)
+
+    \end{tablist}
+
+    % display today's date as Month Year after a vertical space below the end of the text
+    \begin{center}
+        \vfill
+        Updated \monthyeardate\today
+    \end{center}
+
+\end{document}
